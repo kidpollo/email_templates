@@ -1,74 +1,135 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- If you delete this meta tag, Half Life 3 will never be released. -->
+<meta name="viewport" content="width=device-width" />
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Email templates : " />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title><%= "Someone has in the #{@mentionable.company.domain} community mentioned you on a conversation!" %></title>
+	
+<link rel="stylesheet" type="text/css" href="stylesheets/email.css" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+</head>
+ 
+<body bgcolor="#FFFFFF">
 
-    <title>Email templates</title>
-  </head>
+<!-- HEADER -->
+<table class="head-wrap" bgcolor="#222222">
+	<tr>
+		<td></td>
+		<td class="header container" >
+				
+				<div class="content">
+				<table bgcolor="#222222">
+					<tr>
+						<td><img src="http://i.imm.io/16c5o.png" /></td>
+						<td align="right"><h6 class="collapse"><%= @user.nick %></h6></td>
+                        <td align="right"><a href="#">
+          <img src="<%= @user.avatar_uri %>" alt="Photo of Paco" width="26">
+        </a></td>
+					</tr>
+				</table>
+				</div>
+				
+		</td>
+		<td></td>
+	</tr>
+</table><!-- /HEADER -->
 
-  <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/kidpollo/email_templates">View on GitHub</a>
+<!-- BODY -->
+<table class="body-wrap">
+	<tr>
+		<td></td>
+		<td class="container" bgcolor="#FFFFFF">
 
-          <h1 id="project_title">Email templates</h1>
-          <h2 id="project_tagline"></h2>
+			<div class="content">
+			<table>
+				<tr>
+					<td>
+						<h3>Hi, <%= @user.real_name %></h3>
+						<p class="lead">You have been mentioned in a conversation in the <%= @mentionable.company.name %> community</p>
+						    <p> Someone was all like <%= @user.real_name %> should hear this:</p>
+    <p> <%= @mentionable.formatted_content %> </p>
+    <p> In a topic titled: </p>
+    <p> <%= @mention.topic.subject %> </p>
+						<!-- Callout Panel -->
+						<p class="callout">
+							You can choose to <a href='https://<%= ::DEFAULT_HOST %>/<%= @mentionable.company.domain %>/topics/<%= @mention.topic.slug %>'>follow</a> the conversation and recieve more notifications when people participate in the conversation.
+						</p><!-- /Callout Panel -->					
+												
+						<!-- social & contact -->
+						<table class="social" width="100%">
+							<tr>
+								<td>
+									
+									<!-- column 1 -->
+									<table align="left" class="column">
+										<tr>
+											<td>				
+												
+												<h5 class="">Connect with Us:</h5>
+												<p class=""><a href="#" class="soc-btn fb">Facebook</a> <a href="#" class="soc-btn tw">Twitter</a> <a href="#" class="soc-btn gp">Google+</a></p>
+						
+												
+											</td>
+										</tr>
+									</table><!-- /column 1 -->	
+									
+									<!-- column 2 -->
+									<table align="left" class="column">
+										<tr>
+											<td>				
+																			
+												<h5 class="">Contact Info:</h5>												
+												<p>Phone: <strong>408.341.0600</strong><br/>
+                Email: <strong><a href="emailto:hseldon@trantor.com">hseldon@trantor.com</a></strong></p>
+                
+											</td>
+										</tr>
+									</table><!-- /column 2 -->
+									
+									<span class="clear"></span>	
+									
+								</td>
+							</tr>
+						</table><!-- /social & contact -->
+						
+					</td>
+				</tr>
+			</table>
+			</div><!-- /content -->
+									
+		</td>
+		<td></td>
+	</tr>
+</table><!-- /BODY -->
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/kidpollo/email_templates/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/kidpollo/email_templates/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+<!-- FOOTER -->
+<table class="footer-wrap">
+	<tr>
+		<td></td>
+		<td class="container">
+			
+				<!-- content -->
+				<div class="content">
+				<table>
+				<tr>
+					<td align="center">
+						<p>
+							<a href="#">Terms</a> |
+							<a href="#">Privacy</a> |
+							<a href="#"><unsubscribe>Unsubscribe</unsubscribe></a>
+						</p>
+					</td>
+				</tr>
+			</table>
+				</div><!-- /content -->
+				
+		</td>
+		<td></td>
+	</tr>
+</table><!-- /FOOTER -->
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Email templates maintained by <a href="https://github.com/kidpollo">kidpollo</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</body>
 </html>
